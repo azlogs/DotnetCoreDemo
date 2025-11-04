@@ -8,14 +8,18 @@ using BlogEngine.DataModels.Models;
 using BlogEngine.DataRepositories.Implements.CommentRepositories;
 using BlogEngine.DataRepositories.Implements.PostRepositories;
 using BlogEngine.DataRepositories.Implements.UserRepositories;
+using BlogEngine.DataRepositories.Implements.RoleRepositories;
 using BlogEngine.DataRepositories.Interfaces.ICommentRepositories;
 using BlogEngine.DataRepositories.Interfaces.IPostRepositories;
 using BlogEngine.DataRepositories.Interfaces.IUserRepositories;
+using BlogEngine.DataRepositories.Interfaces.IRoleRepositories;
 using BlogEngine.Services.Implements.CommentServiceses;
 using BlogEngine.Services.Implements.PostServiceses;
+using BlogEngine.Services.Implements.RoleServiceses;
 using BlogEngine.Services.UserServices.Implements;
 using BlogEngine.Services.Interfaces.ICommentServiceses;
 using BlogEngine.Services.Interfaces.IPostServiceses;
+using BlogEngine.Services.Interfaces.IRoleServiceses;
 using BlogEngine.Services.IUserServiceses.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -59,11 +63,15 @@ namespace BlogEngine
             services.AddScoped<IPostRepository, PostRepository>();
             services.AddScoped<IUserReolverRepository, UserReolverRepository>();
             services.AddScoped<ICommentRepository, CommentRepository>();
+            services.AddScoped<IRoleRepository, RoleRepository>();
+            services.AddScoped<IUserRoleRepository, UserRoleRepository>();
             
             // Register services manually
             services.AddScoped<IUserServices, UserServices>();
             services.AddScoped<IPostServices, PostServices>();
             services.AddScoped<ICommentServices, CommentServices>();
+            services.AddScoped<IRoleServices, RoleServices>();
+            services.AddScoped<IUserRoleServices, UserRoleServices>();
 
             // config
             // JWT setting

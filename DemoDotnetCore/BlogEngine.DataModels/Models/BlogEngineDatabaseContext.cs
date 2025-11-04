@@ -16,6 +16,8 @@ namespace BlogEngine.DataModels.Models
         public virtual DbSet<Comment> Comments { get; set; }
         public virtual DbSet<Post> Posts { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<UserRole> UserRoles { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -168,6 +170,77 @@ namespace BlogEngine.DataModels.Models
                     .HasColumnName("username")
                     .HasMaxLength(50)
                     .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<Role>(entity =>
+            {
+                entity.ToTable("role");
+
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasColumnName("name")
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.Description)
+                    .HasColumnName("description")
+                    .HasMaxLength(255);
+
+                entity.Property(e => e.CreatedDate)
+                    .HasColumnName("created_date")
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(datetime('now'))");
+
+                entity.Property(e => e.CreatedUserId).HasColumnName("created_user_id");
+
+                entity.Property(e => e.IsDelete).HasColumnName("is_delete");
+
+                entity.Property(e => e.UpdatedDate)
+                    .HasColumnName("updated_date")
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(datetime('now'))");
+
+                entity.Property(e => e.UpdatedUserId).HasColumnName("updated_user_id");
+            });
+
+            modelBuilder.Entity<UserRole>(entity =>
+            {
+                entity.ToTable("user_role");
+
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.UserId).HasColumnName("user_id");
+
+                entity.Property(e => e.RoleId).HasColumnName("role_id");
+
+                entity.Property(e => e.CreatedDate)
+                    .HasColumnName("created_date")
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(datetime('now'))");
+
+                entity.Property(e => e.CreatedUserId).HasColumnName("created_user_id");
+
+                entity.Property(e => e.IsDelete).HasColumnName("is_delete");
+
+                entity.Property(e => e.UpdatedDate)
+                    .HasColumnName("updated_date")
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(datetime('now'))");
+
+                entity.Property(e => e.UpdatedUserId).HasColumnName("updated_user_id");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.UserRoles)
+                    .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_user_role_user");
+
+                entity.HasOne(d => d.Role)
+                    .WithMany(p => p.UserRoles)
+                    .HasForeignKey(d => d.RoleId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_user_role_role");
             });
 
             OnModelCreatingPartial(modelBuilder);
