@@ -1,10 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "D51QSIRanDg=",
+  "dgSpecHash": "IKN58sl1GiA=",
   "success": true,
   "projectFilePath": "/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.DataRepositories/BlogEngine.DataRepositories.csproj",
   "expectedPackageFiles": [
-    "/home/runner/.nuget/packages/aspnetcore.serviceregistration.dynamic/1.2.0/aspnetcore.serviceregistration.dynamic.1.2.0.nupkg.sha512",
     "/home/runner/.nuget/packages/microsoft.aspnetcore.http.abstractions/2.2.0/microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
     "/home/runner/.nuget/packages/microsoft.aspnetcore.http.features/2.2.0/microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
     "/home/runner/.nuget/packages/microsoft.data.sqlite.core/9.0.6/microsoft.data.sqlite.core.9.0.6.nupkg.sha512",

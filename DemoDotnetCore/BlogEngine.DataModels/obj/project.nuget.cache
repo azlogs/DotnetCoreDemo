@@ -1,11 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "HuUqDQu0F4s=",
+  "dgSpecHash": "o4aTtwEfa8I=",
   "success": true,
   "projectFilePath": "/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.DataModels/BlogEngine.DataModels.csproj",
   "expectedPackageFiles": [
-    "/home/runner/.nuget/packages/aspnetcore.serviceregistration.dynamic/1.2.0/aspnetcore.serviceregistration.dynamic.1.2.0.nupkg.sha512",
-    "/home/runner/.nuget/packages/bricelam.entityframeworkcore.pluralizer/1.0.0/bricelam.entityframeworkcore.pluralizer.1.0.0.nupkg.sha512",
     "/home/runner/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/home/runner/.nuget/packages/microsoft.bcl.asyncinterfaces/7.0.0/microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",
     "/home/runner/.nuget/packages/microsoft.build.framework/17.8.3/microsoft.build.framework.17.8.3.nupkg.sha512",

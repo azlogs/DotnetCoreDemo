@@ -2,41 +2,6 @@
   "version": 3,
   "targets": {
     "net9.0": {
-      "AspNetCore.ServiceRegistration.Dynamic/1.2.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "2.0.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/AspNetCore.ServiceRegistration.Dynamic.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/AspNetCore.ServiceRegistration.Dynamic.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "Bricelam.EntityFrameworkCore.Pluralizer/1.0.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore.Design": "2.1.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/_._": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/Bricelam.EntityFrameworkCore.Pluralizer.dll": {
-            "related": ".xml"
-          }
-        },
-        "build": {
-          "build/netstandard2.0/Bricelam.EntityFrameworkCore.Pluralizer.targets": {}
-        }
-      },
       "Humanizer.Core/2.14.1": {
         "type": "package",
         "compile": {
@@ -1468,7 +1433,6 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
         "dependencies": {
-          "AspNetCore.ServiceRegistration.Dynamic": "1.2.0",
           "BlogEngine.ViewModels": "1.0.0",
           "Microsoft.EntityFrameworkCore.Sqlite": "9.0.6"
         },
@@ -1498,7 +1462,6 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
         "dependencies": {
-          "AspNetCore.ServiceRegistration.Dynamic": "1.2.0",
           "BlogEngine.DataRepositories": "1.0.0",
           "BlogEngine.Utils": "1.0.0",
           "BlogEngine.ViewModels": "1.0.0",
@@ -1534,35 +1497,6 @@
     }
   },
   "libraries": {
-    "AspNetCore.ServiceRegistration.Dynamic/1.2.0": {
-      "sha512": "HCDgetN8uXLQlDInp7G1zY25lEMxkcYmhfMARaYHEPXFYnTJcHW+NKjm9FzfmZXtnHXijG15Dzrb9JGxNiv+CA==",
-      "type": "package",
-      "path": "aspnetcore.serviceregistration.dynamic/1.2.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE",
-        "aspnetcore.serviceregistration.dynamic.1.2.0.nupkg.sha512",
-        "aspnetcore.serviceregistration.dynamic.nuspec",
-        "icon.png",
-        "lib/netstandard2.0/AspNetCore.ServiceRegistration.Dynamic.dll",
-        "lib/netstandard2.0/AspNetCore.ServiceRegistration.Dynamic.xml"
-      ]
-    },
-    "Bricelam.EntityFrameworkCore.Pluralizer/1.0.0": {
-      "sha512": "akiz3hGnpDgZssTGTnTehy7cy8gJ3RME7jULOkxWHuoSUUmkyxHO8USA/DDTz9Zc+o3RvTdY888NrjDcmb3OJA==",
-      "type": "package",
-      "path": "bricelam.entityframeworkcore.pluralizer/1.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "bricelam.entityframeworkcore.pluralizer.1.0.0.nupkg.sha512",
-        "bricelam.entityframeworkcore.pluralizer.nuspec",
-        "build/netstandard2.0/Bricelam.EntityFrameworkCore.Pluralizer.targets",
-        "lib/netstandard2.0/Bricelam.EntityFrameworkCore.Pluralizer.dll",
-        "lib/netstandard2.0/Bricelam.EntityFrameworkCore.Pluralizer.xml"
-      ]
-    },
     "Humanizer.Core/2.14.1": {
       "sha512": "lQKvtaTDOXnoVJ20ibTuSIOf2i0uO0MPbDhd1jm238I+U/2ZnRENj0cktKZhtchBMtCUSRQ5v4xBCUbKNmyVMw==",
       "type": "package",
@@ -4318,12 +4252,10 @@
   },
   "projectFileDependencyGroups": {
     "net9.0": [
-      "AspNetCore.ServiceRegistration.Dynamic >= 1.2.0",
       "BlogEngine.DataModels >= 1.0.0",
       "BlogEngine.Services >= 1.0.0",
       "BlogEngine.Utils >= 1.0.0",
       "BlogEngine.ViewModels >= 1.0.0",
-      "Bricelam.EntityFrameworkCore.Pluralizer >= 1.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 9.0.6",
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 9.0.6",
       "Microsoft.EntityFrameworkCore.Design >= 9.0.6",
@@ -4388,16 +4320,6 @@
       "net9.0": {
         "targetAlias": "net9.0",
         "dependencies": {
-          "AspNetCore.ServiceRegistration.Dynamic": {
-            "target": "Package",
-            "version": "[1.2.0, )"
-          },
-          "Bricelam.EntityFrameworkCore.Pluralizer": {
-            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-            "suppressParent": "All",
-            "target": "Package",
-            "version": "[1.0.0, )"
-          },
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
             "target": "Package",
             "version": "[9.0.6, )"

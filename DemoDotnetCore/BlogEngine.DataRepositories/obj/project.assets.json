@@ -2,22 +2,6 @@
   "version": 3,
   "targets": {
     "net9.0": {
-      "AspNetCore.ServiceRegistration.Dynamic/1.2.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "2.0.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/AspNetCore.ServiceRegistration.Dynamic.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/AspNetCore.ServiceRegistration.Dynamic.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "Microsoft.AspNetCore.Http.Abstractions/2.2.0": {
         "type": "package",
         "dependencies": {
@@ -531,7 +515,6 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
         "dependencies": {
-          "AspNetCore.ServiceRegistration.Dynamic": "1.2.0",
           "BlogEngine.ViewModels": "1.0.0",
           "Microsoft.EntityFrameworkCore.Sqlite": "9.0.6"
         },
@@ -555,21 +538,6 @@
     }
   },
   "libraries": {
-    "AspNetCore.ServiceRegistration.Dynamic/1.2.0": {
-      "sha512": "HCDgetN8uXLQlDInp7G1zY25lEMxkcYmhfMARaYHEPXFYnTJcHW+NKjm9FzfmZXtnHXijG15Dzrb9JGxNiv+CA==",
-      "type": "package",
-      "path": "aspnetcore.serviceregistration.dynamic/1.2.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE",
-        "aspnetcore.serviceregistration.dynamic.1.2.0.nupkg.sha512",
-        "aspnetcore.serviceregistration.dynamic.nuspec",
-        "icon.png",
-        "lib/netstandard2.0/AspNetCore.ServiceRegistration.Dynamic.dll",
-        "lib/netstandard2.0/AspNetCore.ServiceRegistration.Dynamic.xml"
-      ]
-    },
     "Microsoft.AspNetCore.Http.Abstractions/2.2.0": {
       "sha512": "Nxs7Z1q3f1STfLYKJSVXCs1iBl+Ya6E8o4Oy1bCxJ/rNI44E/0f6tbsrVqAWfB7jlnJfyaAtIalBVxPKUPQb4Q==",
       "type": "package",

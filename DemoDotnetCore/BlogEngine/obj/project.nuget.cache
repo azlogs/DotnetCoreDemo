@@ -1,11 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "sb7F5Zr2OFk=",
+  "dgSpecHash": "I0RzYCr5rp0=",
   "success": true,
   "projectFilePath": "/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine/BlogEngine.API.csproj",
   "expectedPackageFiles": [
-    "/home/runner/.nuget/packages/aspnetcore.serviceregistration.dynamic/1.2.0/aspnetcore.serviceregistration.dynamic.1.2.0.nupkg.sha512",
-    "/home/runner/.nuget/packages/bricelam.entityframeworkcore.pluralizer/1.0.0/bricelam.entityframeworkcore.pluralizer.1.0.0.nupkg.sha512",
     "/home/runner/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/home/runner/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/9.0.6/microsoft.aspnetcore.authentication.jwtbearer.9.0.6.nupkg.sha512",
     "/home/runner/.nuget/packages/microsoft.aspnetcore.http.abstractions/2.2.0/microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",

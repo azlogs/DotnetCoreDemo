@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AspNetCore.ServiceRegistration.Dynamic.Attributes;
-using AspNetCore.ServiceRegistration.Dynamic.Extensions;
-using AspNetCore.ServiceRegistration.Dynamic.Interfaces;
 using BlogEngine.API.Options;
 using BlogEngine.DataModels.Models;
 using BlogEngine.DataRepositories.Implements.CommentRepositories;
@@ -14,6 +11,12 @@ using BlogEngine.DataRepositories.Implements.UserRepositories;
 using BlogEngine.DataRepositories.Interfaces.ICommentRepositories;
 using BlogEngine.DataRepositories.Interfaces.IPostRepositories;
 using BlogEngine.DataRepositories.Interfaces.IUserRepositories;
+using BlogEngine.Services.Implements.CommentServiceses;
+using BlogEngine.Services.Implements.PostServiceses;
+using BlogEngine.Services.UserServices.Implements;
+using BlogEngine.Services.Interfaces.ICommentServiceses;
+using BlogEngine.Services.Interfaces.IPostServiceses;
+using BlogEngine.Services.IUserServiceses.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -57,9 +60,10 @@ namespace BlogEngine
             services.AddScoped<IUserReolverRepository, UserReolverRepository>();
             services.AddScoped<ICommentRepository, CommentRepository>();
             
-            // register sercicesss
-            services.AddServicesOfType<IScopedService>();
-            services.AddServicesWithAttributeOfType<ScopedServiceAttribute>();
+            // Register services manually
+            services.AddScoped<IUserServices, UserServices>();
+            services.AddScoped<IPostServices, PostServices>();
+            services.AddScoped<ICommentServices, CommentServices>();
 
             // config
             // JWT setting
