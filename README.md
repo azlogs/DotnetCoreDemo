@@ -70,7 +70,34 @@ This project follows **Clean Architecture** principles with clear separation of 
 - [.NET 9.0 SDK](https://dotnet.microsoft.com/download/dotnet/9.0) or later
 - Git
 
-### Clone and Run
+### Automated Setup (Recommended)
+
+The easiest way to get started is using the provided startup scripts:
+
+**Linux/Mac:**
+```bash
+git clone https://github.com/azlogs/DotnetCoreDemo.git
+cd DotnetCoreDemo
+chmod +x start.sh
+./start.sh
+```
+
+**Windows:**
+```cmd
+git clone https://github.com/azlogs/DotnetCoreDemo.git
+cd DotnetCoreDemo
+start.bat
+```
+
+The script will automatically:
+- Restore NuGet packages
+- Build the solution
+- Create the database with migrations
+- Start the API server
+
+### Manual Setup
+
+If you prefer to run commands manually:
 
 1. **Clone the repository**
    ```bash
@@ -96,7 +123,7 @@ This project follows **Clean Architecture** principles with clear separation of 
    dotnet run
    ```
 
-5. **Open Swagger UI**
+5. **Access the application**
    
    Navigate to: `https://localhost:5001/swagger` or `http://localhost:5000/swagger`
 
@@ -260,20 +287,47 @@ dotnet ef database update <PreviousMigrationName>
 - [ ] Set up database backups
 - [ ] Review and optimize connection strings
 
-### Docker (Optional)
+### Docker Deployment
 
-A Dockerfile can be added for containerized deployment:
+The project includes Docker support for easy containerized deployment.
 
-```dockerfile
-FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
-WORKDIR /src
-COPY . .
+**Quick Start with Docker Compose:**
+
+```bash
+# Navigate to the DemoDotnetCore directory
+cd DemoDotnetCore
+
+# Update environment variables in docker-compose.yml
+# IMPORTANT: Change the default security keys!
+
+# Build and run
+docker-compose up -d
+
+# View logs
+docker-compose logs -f
+
+# Stop
+docker-compose down
+```
+
+The API will be available at:
+- HTTP: `http://localhost:5000`
+- HTTPS: `http://localhost:5001`
+- Swagger: `http://localhost:5000/swagger`
+
+**Build Docker Image Manually:**
+
+```bash
+cd DemoDotnetCore
+docker build -t blogengine-api .
+docker run -p 5000:8080 -p 5001:8081 blogengine-api
+```
+
+**Important Notes:**
+- The SQLite database file is persisted in the `./data` volume
+- Update security keys in `docker-compose.yml` before deployment
+- For production, use environment variables or secrets management
 RUN dotnet restore
-RUN dotnet publish -c Release -o /app
-
-FROM mcr.microsoft.com/dotnet/aspnet:9.0
-WORKDIR /app
-COPY --from=build /app .
 ENTRYPOINT ["dotnet", "BlogEngine.API.dll"]
 ```
 
