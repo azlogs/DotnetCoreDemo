@@ -1,0 +1,412 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.Services/BlogEngine.Services.csproj": {}
+  },
+  "projects": {
+    "/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.DataModels/BlogEngine.DataModels.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.DataModels/BlogEngine.DataModels.csproj",
+        "projectName": "BlogEngine.DataModels",
+        "projectPath": "/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.DataModels/BlogEngine.DataModels.csproj",
+        "packagesPath": "/home/runner/.nuget/packages/",
+        "outputPath": "/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.DataModels/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/runner/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.ViewModels/BlogEngine.ViewModels.csproj": {
+                "projectPath": "/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.ViewModels/BlogEngine.ViewModels.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "AspNetCore.ServiceRegistration.Dynamic": {
+              "target": "Package",
+              "version": "[1.2.0, )"
+            },
+            "Bricelam.EntityFrameworkCore.Pluralizer": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.10, 3.1.10]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.306/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.DataRepositories/BlogEngine.DataRepositories.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.DataRepositories/BlogEngine.DataRepositories.csproj",
+        "projectName": "BlogEngine.DataRepositories",
+        "projectPath": "/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.DataRepositories/BlogEngine.DataRepositories.csproj",
+        "packagesPath": "/home/runner/.nuget/packages/",
+        "outputPath": "/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.DataRepositories/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/runner/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.DataModels/BlogEngine.DataModels.csproj": {
+                "projectPath": "/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.DataModels/BlogEngine.DataModels.csproj"
+              },
+              "/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.ViewModels/BlogEngine.ViewModels.csproj": {
+                "projectPath": "/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.ViewModels/BlogEngine.ViewModels.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.10, 3.1.10]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.306/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.Services/BlogEngine.Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.Services/BlogEngine.Services.csproj",
+        "projectName": "BlogEngine.Services",
+        "projectPath": "/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.Services/BlogEngine.Services.csproj",
+        "packagesPath": "/home/runner/.nuget/packages/",
+        "outputPath": "/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.Services/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/runner/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.DataRepositories/BlogEngine.DataRepositories.csproj": {
+                "projectPath": "/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.DataRepositories/BlogEngine.DataRepositories.csproj"
+              },
+              "/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.Utils/BlogEngine.Utils.csproj": {
+                "projectPath": "/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.Utils/BlogEngine.Utils.csproj"
+              },
+              "/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.ViewModels/BlogEngine.ViewModels.csproj": {
+                "projectPath": "/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.ViewModels/BlogEngine.ViewModels.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "AspNetCore.ServiceRegistration.Dynamic": {
+              "target": "Package",
+              "version": "[1.2.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.7.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.10, 3.1.10]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.306/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.Utils/BlogEngine.Utils.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.Utils/BlogEngine.Utils.csproj",
+        "projectName": "BlogEngine.Utils",
+        "projectPath": "/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.Utils/BlogEngine.Utils.csproj",
+        "packagesPath": "/home/runner/.nuget/packages/",
+        "outputPath": "/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.Utils/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/runner/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.10, 3.1.10]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.306/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.ViewModels/BlogEngine.ViewModels.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.ViewModels/BlogEngine.ViewModels.csproj",
+        "projectName": "BlogEngine.ViewModels",
+        "projectPath": "/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.ViewModels/BlogEngine.ViewModels.csproj",
+        "packagesPath": "/home/runner/.nuget/packages/",
+        "outputPath": "/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.ViewModels/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/runner/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.10, 3.1.10]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.306/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

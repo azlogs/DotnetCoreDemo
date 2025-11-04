@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "DKgOkJVSE8k=",
+  "success": true,
+  "projectFilePath": "/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.Utils/BlogEngine.Utils.csproj",
+  "expectedPackageFiles": [
+    "/home/runner/.nuget/packages/microsoft.netcore.app.ref/3.1.0/microsoft.netcore.app.ref.3.1.0.nupkg.sha512",
+    "/home/runner/.nuget/packages/microsoft.aspnetcore.app.ref/3.1.10/microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512"
+  ],
+  "logs": []
+}

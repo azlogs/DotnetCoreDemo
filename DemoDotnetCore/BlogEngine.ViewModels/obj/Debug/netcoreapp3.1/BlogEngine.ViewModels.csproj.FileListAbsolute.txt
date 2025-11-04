@@ -1,0 +1,10 @@
+/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.ViewModels/bin/Debug/netcoreapp3.1/BlogEngine.ViewModels.deps.json
+/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.ViewModels/bin/Debug/netcoreapp3.1/BlogEngine.ViewModels.dll
+/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.ViewModels/bin/Debug/netcoreapp3.1/BlogEngine.ViewModels.pdb
+/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.ViewModels/obj/Debug/netcoreapp3.1/BlogEngine.ViewModels.GeneratedMSBuildEditorConfig.editorconfig
+/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.ViewModels/obj/Debug/netcoreapp3.1/BlogEngine.ViewModels.AssemblyInfoInputs.cache
+/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.ViewModels/obj/Debug/netcoreapp3.1/BlogEngine.ViewModels.AssemblyInfo.cs
+/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.ViewModels/obj/Debug/netcoreapp3.1/BlogEngine.ViewModels.csproj.CoreCompileInputs.cache
+/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.ViewModels/obj/Debug/netcoreapp3.1/BlogEngine.ViewModels.sourcelink.json
+/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.ViewModels/obj/Debug/netcoreapp3.1/BlogEngine.ViewModels.dll
+/home/runner/work/DotnetCoreDemo/DotnetCoreDemo/DemoDotnetCore/BlogEngine.ViewModels/obj/Debug/netcoreapp3.1/BlogEngine.ViewModels.pdb
