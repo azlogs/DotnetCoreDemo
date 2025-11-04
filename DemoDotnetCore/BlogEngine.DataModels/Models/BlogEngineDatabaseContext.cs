@@ -21,7 +21,7 @@ namespace BlogEngine.DataModels.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Name=BlogEngineDatabase");
+                optionsBuilder.UseSqlite("Name=BlogEngineDatabase");
             }
         }
 

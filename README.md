@@ -1,0 +1,329 @@
+# Blog Engine - .NET 9.0 Clean Architecture Demo
+
+A sample Blog Engine API built with .NET 9.0 demonstrating Clean Architecture principles, RESTful API design, and modern .NET development practices.
+
+## 🏗️ Architecture
+
+This project follows **Clean Architecture** principles with clear separation of concerns:
+
+```
+┌─────────────────────────────────────────────┐
+│          Presentation Layer (API)          │
+│         BlogEngine.API                      │
+│  - Controllers                              │
+│  - Startup Configuration                    │
+│  - Swagger/OpenAPI                          │
+└──────────────────┬──────────────────────────┘
+                   │
+┌──────────────────┴──────────────────────────┐
+│         Application Layer                   │
+│      BlogEngine.Services                    │
+│  - Business Logic                           │
+│  - Service Interfaces & Implementations     │
+└──────────────────┬──────────────────────────┘
+                   │
+┌──────────────────┴──────────────────────────┐
+│        Infrastructure Layer                 │
+│   BlogEngine.DataRepositories               │
+│  - Repository Pattern                       │
+│  - Data Access Logic                        │
+└──────────────────┬──────────────────────────┘
+                   │
+┌──────────────────┴──────────────────────────┐
+│           Domain Layer                      │
+│     BlogEngine.DataModels                   │
+│  - Entities (User, Post, Comment)          │
+│  - DbContext                                │
+│  - Database Migrations                      │
+└─────────────────────────────────────────────┘
+
+        Supporting Projects:
+        ├── BlogEngine.ViewModels - DTOs
+        └── BlogEngine.Utils - Utilities
+```
+
+### Layer Responsibilities
+
+- **API Layer** (`BlogEngine.API`): Entry point, HTTP concerns, dependency injection configuration
+- **Service Layer** (`BlogEngine.Services`): Business logic, orchestration, application services
+- **Repository Layer** (`BlogEngine.DataRepositories`): Data access abstraction, CRUD operations
+- **Domain Layer** (`BlogEngine.DataModels`): Core entities, database context, migrations
+- **ViewModels** (`BlogEngine.ViewModels`): Data Transfer Objects (DTOs)
+- **Utils** (`BlogEngine.Utils`): Shared utilities and helpers
+
+## ✨ Features
+
+- 🔐 **JWT Authentication** - Secure token-based authentication
+- 📝 **Blog Post Management** - Create, read, update, delete blog posts
+- 💬 **Comment System** - Nested comments with parent-child relationships
+- 👤 **User Management** - User registration and profile management
+- 📚 **Swagger/OpenAPI** - Interactive API documentation
+- 🗄️ **SQLite Database** - Lightweight, zero-configuration database
+- 🔄 **EF Core Migrations** - Version-controlled database schema
+- 🏗️ **Clean Architecture** - Maintainable and testable code structure
+- 🔒 **Security** - Password encryption, JWT tokens, secure endpoints
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- [.NET 9.0 SDK](https://dotnet.microsoft.com/download/dotnet/9.0) or later
+- Git
+
+### Clone and Run
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/azlogs/DotnetCoreDemo.git
+   cd DotnetCoreDemo/DemoDotnetCore
+   ```
+
+2. **Restore dependencies**
+   ```bash
+   dotnet restore
+   ```
+
+3. **Apply database migrations**
+   ```bash
+   cd BlogEngine.DataModels
+   dotnet ef database update
+   cd ..
+   ```
+
+4. **Run the application**
+   ```bash
+   cd BlogEngine
+   dotnet run
+   ```
+
+5. **Open Swagger UI**
+   
+   Navigate to: `https://localhost:5001/swagger` or `http://localhost:5000/swagger`
+
+   The API is now running and you can test all endpoints through the Swagger interface!
+
+## 🔧 Configuration
+
+### App Settings
+
+Copy `appsettings.Example.json` to `appsettings.json` and update the values:
+
+```json
+{
+  "SecuritySetting": {
+    "SecrectKey": "YOUR-SECRET-KEY-HERE-MINIMUM-32-CHARACTERS-LONG",
+    "PasswordSalt": "YOUR-PASSWORD-SALT-HERE-GUID-FORMAT"
+  },
+  "ConnectionStrings": {
+    "BlogEngineDatabase": "Data Source=blogengine.db"
+  }
+}
+```
+
+**Security Settings:**
+- `SecrectKey`: Used for JWT token signing (min 32 characters)
+- `PasswordSalt`: Salt for password hashing (use a GUID)
+
+**Database:**
+- Default SQLite database file: `blogengine.db`
+- Automatically created on first run
+
+## 📦 Project Structure
+
+```
+DemoDotnetCore/
+├── BlogEngine/                      # API Project (Presentation)
+│   ├── Controllers/                 # API Controllers
+│   ├── Options/                     # Configuration options
+│   ├── Startup.cs                   # App configuration
+│   ├── Program.cs                   # Entry point
+│   └── appsettings.json            # Configuration
+│
+├── BlogEngine.Services/             # Application Services
+│   ├── Interfaces/                  # Service contracts
+│   └── Implements/                  # Service implementations
+│
+├── BlogEngine.DataRepositories/     # Data Access Layer
+│   ├── Interfaces/                  # Repository contracts
+│   └── Implements/                  # Repository implementations
+│
+├── BlogEngine.DataModels/           # Domain Models
+│   ├── Models/                      # Entities & DbContext
+│   └── Migrations/                  # EF Core Migrations
+│
+├── BlogEngine.ViewModels/           # DTOs
+│   ├── UserViewModels/
+│   ├── PostViewModels/
+│   └── CommentViewModels/
+│
+└── BlogEngine.Utils/                # Utilities
+    └── StringCipher.cs              # Encryption utilities
+```
+
+## 🗄️ Database Schema
+
+### Tables
+
+- **User** - User accounts and profiles
+- **Post** - Blog posts with title, content, tags
+- **Comment** - Comments on posts (supports nesting)
+
+### Relationships
+
+- User → Posts (1:many)
+- User → Comments (1:many)
+- Post → Comments (1:many)
+- Comment → Comment (self-referencing for nested comments)
+
+## 🔐 Authentication
+
+This API uses JWT (JSON Web Tokens) for authentication.
+
+1. **Register/Login** to obtain a JWT token
+2. **Include the token** in subsequent requests:
+   ```
+   Authorization: Bearer <your-token>
+   ```
+3. Swagger UI has built-in JWT authentication support
+
+## 🛠️ Development
+
+### Build the solution
+```bash
+dotnet build
+```
+
+### Run tests (if available)
+```bash
+dotnet test
+```
+
+### Create a new migration
+```bash
+cd BlogEngine.DataModels
+dotnet ef migrations add <MigrationName>
+```
+
+### Update database
+```bash
+cd BlogEngine.DataModels
+dotnet ef database update
+```
+
+### Rollback migration
+```bash
+cd BlogEngine.DataModels
+dotnet ef database update <PreviousMigrationName>
+```
+
+## 📚 API Endpoints
+
+### Users
+- `POST /api/users/register` - Register a new user
+- `POST /api/users/login` - Login and get JWT token
+- `GET /api/users/{id}` - Get user by ID
+- `PUT /api/users/{id}` - Update user
+- `DELETE /api/users/{id}` - Delete user
+
+### Posts
+- `GET /api/posts` - Get all posts
+- `GET /api/posts/{id}` - Get post by ID
+- `POST /api/posts` - Create new post (requires auth)
+- `PUT /api/posts/{id}` - Update post (requires auth)
+- `DELETE /api/posts/{id}` - Delete post (requires auth)
+
+### Comments
+- `GET /api/comments/post/{postId}` - Get comments for a post
+- `POST /api/comments` - Create comment (requires auth)
+- `PUT /api/comments/{id}` - Update comment (requires auth)
+- `DELETE /api/comments/{id}` - Delete comment (requires auth)
+
+*For detailed request/response schemas, see the Swagger documentation at `/swagger`*
+
+## 🧪 Testing with Swagger
+
+1. Start the application
+2. Navigate to `https://localhost:5001/swagger`
+3. Click "Authorize" and enter your JWT token
+4. Test endpoints directly from the browser
+
+## 🚢 Deployment
+
+### Production Checklist
+
+- [ ] Update `appsettings.json` with production values
+- [ ] Use strong, unique `SecrectKey` and `PasswordSalt`
+- [ ] Consider using environment variables for secrets
+- [ ] Review and harden security settings
+- [ ] Set up proper logging and monitoring
+- [ ] Configure HTTPS/SSL certificates
+- [ ] Set up database backups
+- [ ] Review and optimize connection strings
+
+### Docker (Optional)
+
+A Dockerfile can be added for containerized deployment:
+
+```dockerfile
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
+WORKDIR /src
+COPY . .
+RUN dotnet restore
+RUN dotnet publish -c Release -o /app
+
+FROM mcr.microsoft.com/dotnet/aspnet:9.0
+WORKDIR /app
+COPY --from=build /app .
+ENTRYPOINT ["dotnet", "BlogEngine.API.dll"]
+```
+
+## 🔄 Migration from .NET Core 3.1
+
+This project has been upgraded from .NET Core 3.1 to .NET 9.0 with the following improvements:
+
+- ✅ Updated to .NET 9.0 (latest version)
+- ✅ Migrated from SQL Server to SQLite for easier setup
+- ✅ Added Entity Framework Core migrations
+- ✅ Updated all NuGet packages to latest versions
+- ✅ Fixed security vulnerabilities
+- ✅ Added nullable reference types support
+- ✅ Improved Clean Architecture implementation
+- ✅ Added comprehensive documentation
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is provided as-is for educational and demonstration purposes.
+
+## 🐛 Troubleshooting
+
+### Build Errors
+- Ensure you have .NET 9.0 SDK installed: `dotnet --version`
+- Run `dotnet restore` to restore packages
+
+### Database Errors
+- Delete `blogengine.db` and run migrations again
+- Check connection string in `appsettings.json`
+
+### Authentication Issues
+- Ensure `SecrectKey` is at least 32 characters
+- Check that Authorization header includes "Bearer " prefix
+
+### Port Conflicts
+- Default ports are 5000 (HTTP) and 5001 (HTTPS)
+- Change ports in `Properties/launchSettings.json` if needed
+
+## 📧 Support
+
+For issues, questions, or contributions, please open an issue on GitHub.
+
+---
+
+**Built with ❤️ using .NET 9.0 and Clean Architecture principles**

@@ -46,11 +46,10 @@ namespace BlogEngine
             services.AddControllers();
 
             services.AddMvc(option => option.EnableEndpointRouting = false)
-                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
                 .AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
             services.AddDbContext<BlogEngineDatabaseContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("BlogEngineDatabase")));
+                options.UseSqlite(Configuration.GetConnectionString("BlogEngineDatabase")));
 
             services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<IUserRepository, UserRepository>();
