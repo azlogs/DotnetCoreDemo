@@ -327,9 +327,6 @@ docker run -p 5000:8080 -p 5001:8081 blogengine-api
 - The SQLite database file is persisted in the `./data` volume
 - Update security keys in `docker-compose.yml` before deployment
 - For production, use environment variables or secrets management
-RUN dotnet restore
-ENTRYPOINT ["dotnet", "BlogEngine.API.dll"]
-```
 
 ## 🔄 Migration from .NET Core 3.1
 
