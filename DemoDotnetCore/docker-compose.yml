@@ -1,6 +1,26 @@
 version: '3.8'
 
 services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: blogengine-sqlserver
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=YourStrong@Passw0rd
+      - MSSQL_PID=Developer
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserver-data:/var/opt/mssql
+    networks:
+      - blogengine-network
+    healthcheck:
+      test: /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P YourStrong@Passw0rd -Q "SELECT 1" || exit 1
+      interval: 10s
+      timeout: 3s
+      retries: 10
+      start_period: 10s
+
   blogengine-api:
     build:
       context: .
@@ -12,11 +32,12 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:8080;https://+:8081
-      - ConnectionStrings__BlogEngineDatabase=Data Source=/app/data/blogengine.db
+      - ConnectionStrings__BlogEngineDatabase=Server=sqlserver,1433;Database=BlogEngineDatabase;User Id=sa;Password=YourStrong@Passw0rd;TrustServerCertificate=True
       - SecuritySetting__SecrectKey=YOUR-SECRET-KEY-HERE-MINIMUM-32-CHARACTERS-LONG-CHANGE-THIS
       - SecuritySetting__PasswordSalt=YOUR-PASSWORD-SALT-HERE-GUID-FORMAT-CHANGE-THIS
-    volumes:
-      - ./data:/app/data
+    depends_on:
+      sqlserver:
+        condition: service_healthy
     restart: unless-stopped
     networks:
       - blogengine-network
@@ -26,4 +47,4 @@ networks:
     driver: bridge
 
 volumes:
-  data:
+  sqlserver-data:

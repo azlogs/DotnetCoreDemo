@@ -2,11 +2,21 @@
 
 # Blog Engine Quick Start Script
 # This script helps you get the Blog Engine API up and running quickly
+# 
+# IMPORTANT: This script requires SQL Server to be running.
+# For the easiest setup, use Docker Compose instead:
+#   cd DemoDotnetCore && docker-compose up -d
+#
+# If you have SQL Server installed locally, update the connection string
+# in DemoDotnetCore/BlogEngine/appsettings.json before running this script.
 
 set -e
 
 echo "🚀 Blog Engine Quick Start"
 echo "=========================="
+echo ""
+echo "⚠️  NOTE: This requires SQL Server to be running."
+echo "   For easy setup with SQL Server, use: docker-compose up -d"
 echo ""
 
 # Check if .NET is installed

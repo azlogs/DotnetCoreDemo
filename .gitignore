@@ -49,7 +49,9 @@ ScaffoldingReadMe.txt
 Thumbs.db
 ehthumbs.db
 
-# SQLite
+# Database files
+*.mdf
+*.ldf
 *.db
 *.db-shm
 *.db-wal

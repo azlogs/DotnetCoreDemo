@@ -8,7 +8,7 @@ namespace BlogEngine.DataModels.Models
         public BlogEngineDatabaseContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<BlogEngineDatabaseContext>();
-            optionsBuilder.UseSqlite("Data Source=blogengine.db");
+            optionsBuilder.UseSqlServer("Server=localhost,1433;Database=BlogEngineDatabase;User Id=sa;Password=YourStrong@Passw0rd;TrustServerCertificate=True");
 
             return new BlogEngineDatabaseContext(optionsBuilder.Options);
         }

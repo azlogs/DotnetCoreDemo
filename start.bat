@@ -1,11 +1,21 @@
 @echo off
 REM Blog Engine Quick Start Script for Windows
 REM This script helps you get the Blog Engine API up and running quickly
+REM
+REM IMPORTANT: This script requires SQL Server to be running.
+REM For the easiest setup, use Docker Compose instead:
+REM   cd DemoDotnetCore && docker-compose up -d
+REM
+REM If you have SQL Server installed locally, update the connection string
+REM in DemoDotnetCore\BlogEngine\appsettings.json before running this script.
 
 echo.
 echo ======================
 echo Blog Engine Quick Start
 echo ======================
+echo.
+echo WARNING: This requires SQL Server to be running.
+echo For easy setup with SQL Server, use: docker-compose up -d
 echo.
 
 REM Check if .NET is installed

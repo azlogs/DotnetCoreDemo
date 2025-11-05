@@ -23,7 +23,7 @@ namespace BlogEngine.DataModels.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlite("Name=BlogEngineDatabase");
+                optionsBuilder.UseSqlServer("Name=BlogEngineDatabase");
             }
         }
 

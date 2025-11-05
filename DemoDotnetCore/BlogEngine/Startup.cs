@@ -56,7 +56,7 @@ namespace BlogEngine
                 .AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
             services.AddDbContext<BlogEngineDatabaseContext>(options =>
-                options.UseSqlite(Configuration.GetConnectionString("BlogEngineDatabase")));
+                options.UseSqlServer(Configuration.GetConnectionString("BlogEngineDatabase")));
 
             services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<IUserRepository, UserRepository>();

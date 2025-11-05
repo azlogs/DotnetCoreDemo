@@ -68,36 +68,43 @@ This project follows **Clean Architecture** principles with clear separation of 
 ### Prerequisites
 
 - [.NET 9.0 SDK](https://dotnet.microsoft.com/download/dotnet/9.0) or later
+- SQL Server (or use Docker Compose - see below)
 - Git
 
-### Automated Setup (Recommended)
+### Docker Compose Setup (Recommended)
 
-The easiest way to get started is using the provided startup scripts:
+The easiest way to get started is using Docker Compose, which includes SQL Server:
 
-**Linux/Mac:**
 ```bash
 git clone https://github.com/azlogs/DotnetCoreDemo.git
-cd DotnetCoreDemo
-chmod +x start.sh
-./start.sh
+cd DotnetCoreDemo/DemoDotnetCore
+docker-compose up -d
 ```
 
-**Windows:**
-```cmd
-git clone https://github.com/azlogs/DotnetCoreDemo.git
-cd DotnetCoreDemo
-start.bat
+This will:
+- Start SQL Server 2022 in a container
+- Wait for SQL Server to be ready
+- Start the Blog Engine API
+- Create the database automatically
+
+Access the API:
+- HTTP: `http://localhost:5000`
+- HTTPS: `http://localhost:5001`
+- Swagger: `http://localhost:5000/swagger`
+
+To stop:
+```bash
+docker-compose down
 ```
 
-The script will automatically:
-- Restore NuGet packages
-- Build the solution
-- Create the database with migrations
-- Start the API server
+To stop and remove database:
+```bash
+docker-compose down -v
+```
 
-### Manual Setup
+### Local Development Setup
 
-If you prefer to run commands manually:
+If you have SQL Server installed locally:
 
 1. **Clone the repository**
    ```bash
@@ -105,19 +112,28 @@ If you prefer to run commands manually:
    cd DotnetCoreDemo/DemoDotnetCore
    ```
 
-2. **Restore dependencies**
+2. **Update connection string**
+   
+   Edit `BlogEngine/appsettings.json`:
+   ```json
+   "ConnectionStrings": {
+     "BlogEngineDatabase": "Server=localhost,1433;Database=BlogEngineDatabase;User Id=sa;Password=YourPassword;TrustServerCertificate=True"
+   }
+   ```
+
+3. **Restore dependencies**
    ```bash
    dotnet restore
    ```
 
-3. **Apply database migrations**
+4. **Apply database migrations**
    ```bash
    cd BlogEngine.DataModels
    dotnet ef database update
    cd ..
    ```
 
-4. **Run the application**
+5. **Run the application**
    ```bash
    cd BlogEngine
    dotnet run
@@ -142,7 +158,7 @@ Copy `appsettings.Example.json` to `appsettings.json` and update the values:
     "PasswordSalt": "YOUR-PASSWORD-SALT-HERE-GUID-FORMAT"
   },
   "ConnectionStrings": {
-    "BlogEngineDatabase": "Data Source=blogengine.db"
+    "BlogEngineDatabase": "Server=localhost,1433;Database=BlogEngineDatabase;User Id=sa;Password=YOUR-STRONG-PASSWORD;TrustServerCertificate=True"
   }
 }
 ```
@@ -152,8 +168,9 @@ Copy `appsettings.Example.json` to `appsettings.json` and update the values:
 - `PasswordSalt`: Salt for password hashing (use a GUID)
 
 **Database:**
-- Default SQLite database file: `blogengine.db`
-- Automatically created on first run
+- SQL Server connection string
+- Default uses port 1433
+- Database `BlogEngineDatabase` auto-creates on first run
 
 ## 📦 Project Structure
 
@@ -189,11 +206,15 @@ DemoDotnetCore/
 
 ## 🗄️ Database Schema
 
+This project uses **SQL Server** as the database.
+
 ### Tables
 
 - **User** - User accounts and profiles
 - **Post** - Blog posts with title, content, tags
 - **Comment** - Comments on posts (supports nesting)
+- **Role** - User roles for RBAC
+- **UserRole** - Many-to-many relationship between users and roles
 
 ### Relationships
 
@@ -289,7 +310,7 @@ dotnet ef database update <PreviousMigrationName>
 
 ### Docker Deployment
 
-The project includes Docker support for easy containerized deployment.
+The project includes Docker support with SQL Server for easy containerized deployment.
 
 **Quick Start with Docker Compose:**
 
@@ -298,22 +319,32 @@ The project includes Docker support for easy containerized deployment.
 cd DemoDotnetCore
 
 # Update environment variables in docker-compose.yml
-# IMPORTANT: Change the default security keys!
+# IMPORTANT: Change the default security keys and SQL Server password!
 
-# Build and run
+# Build and run (includes SQL Server 2022)
 docker-compose up -d
 
 # View logs
 docker-compose logs -f
 
-# Stop
+# Stop containers
 docker-compose down
+
+# Stop and remove database volume
+docker-compose down -v
 ```
+
+**What's Included:**
+- SQL Server 2022 Developer Edition (free)
+- Blog Engine API
+- Automatic database initialization
+- Health checks to ensure SQL Server is ready
 
 The API will be available at:
 - HTTP: `http://localhost:5000`
 - HTTPS: `http://localhost:5001`
 - Swagger: `http://localhost:5000/swagger`
+- SQL Server: `localhost:1433`
 
 **Build Docker Image Manually:**
 
@@ -324,7 +355,8 @@ docker run -p 5000:8080 -p 5001:8081 blogengine-api
 ```
 
 **Important Notes:**
-- The SQLite database file is persisted in the `./data` volume
+- SQL Server data is persisted in a Docker volume
+- Default password is `YourStrong@Passw0rd` - **change this for production!**
 - Update security keys in `docker-compose.yml` before deployment
 - For production, use environment variables or secrets management
 
@@ -333,12 +365,13 @@ docker run -p 5000:8080 -p 5001:8081 blogengine-api
 This project has been upgraded from .NET Core 3.1 to .NET 9.0 with the following improvements:
 
 - ✅ Updated to .NET 9.0 (latest version)
-- ✅ Migrated from SQL Server to SQLite for easier setup
+- ✅ Uses SQL Server with Docker Compose for easy setup
 - ✅ Added Entity Framework Core migrations
 - ✅ Updated all NuGet packages to latest versions
 - ✅ Fixed security vulnerabilities
 - ✅ Added nullable reference types support
 - ✅ Improved Clean Architecture implementation
+- ✅ Added Role-Based Access Control (RBAC)
 - ✅ Added comprehensive documentation
 
 ## 🤝 Contributing
@@ -360,8 +393,10 @@ This project is provided as-is for educational and demonstration purposes.
 - Run `dotnet restore` to restore packages
 
 ### Database Errors
-- Delete `blogengine.db` and run migrations again
+- Ensure SQL Server is running (check `docker-compose ps` if using Docker)
 - Check connection string in `appsettings.json`
+- Verify SQL Server is accepting connections on port 1433
+- For Docker: ensure health check passes with `docker-compose logs sqlserver`
 
 ### Authentication Issues
 - Ensure `SecrectKey` is at least 32 characters
