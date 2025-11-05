@@ -9,6 +9,7 @@ namespace BlogEngine.DataModels.Models
         {
             Comments = new HashSet<Comment>();
             Posts = new HashSet<Post>();
+            UserRoles = new HashSet<UserRole>();
         }
 
         public string Email { get; set; }
@@ -19,5 +20,6 @@ namespace BlogEngine.DataModels.Models
 
         public virtual ICollection<Comment> Comments { get; set; }
         public virtual ICollection<Post> Posts { get; set; }
+        public virtual ICollection<UserRole> UserRoles { get; set; }
     }
 }
